@@ -1,0 +1,22 @@
+title Single Page App
+
+selain->palvelin: HTTP GET /spa
+palvelin-->selain:spa.html -sivu
+selain->palvelin: HTTP GET /main.css
+palvelin-->selain:main.css -tyylitiedosto
+selain->palvelin: HTTP GET /spa.js
+palvelin-->selain:spa.js -skriptitiedosto
+
+note over selain: 
+spa.js -tiedostossa oleva js-koodi tekee 
+ajax-pyynnön data.json -tiedostosta
+end note
+
+selain->palvelin: HTTP GET /data.json
+palvelin-->selain:data.json
+
+note over selain:
+data.json -pyynnön takaisinkutsufunktio kutsuu
+redrawNotes-funktiota, joka lisää sivulle listan
+data.json-tiedostossa luetelluista muistiinpanoista
+end note

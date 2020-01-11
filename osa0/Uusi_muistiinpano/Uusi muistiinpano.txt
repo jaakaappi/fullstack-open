@@ -1,0 +1,11 @@
+title Uusi muistiinpano
+note over selain:
+selain estää formin lähettämisen,
+luo uuden muistiinpanon,
+lisää sen muistiinpanojen listaan,
+piirtää muistiinpanolistan uudestaan
+ja lähettää uuden muistiinpanon serverille
+end note
+selain->palvelin: HTTP POST /new_note_spa
+note over palvelin: tallentaa muistiinpanon
+palvelin-->selain: 201
