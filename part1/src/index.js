@@ -5,15 +5,19 @@ const Header = props => {
   return <h1>{props.course}</h1>;
 };
 
+const Part = props => {
+  return (
+    <p>
+      {props.partTitle} {props.exercises}
+    </p>
+  );
+};
+
 const Content = props => {
   return (
     <>
-      {props.contents.map(content => {
-        return (
-          <p>
-            {content.part} {content.exercises}
-          </p>
-        );
+      {props.parts.map(part => {
+        return <Part partTitle={part.part} exercises={part.exercises} />;
       })}
     </>
   );
@@ -32,7 +36,7 @@ const App = () => {
   const part3 = "State of a component";
   const exercises3 = 14;
 
-  const contents = [
+  const parts = [
     { part: part1, exercises: exercises1 },
     { part: part2, exercises: exercises2 },
     { part: part3, exercises: exercises3 }
@@ -41,7 +45,7 @@ const App = () => {
   return (
     <div>
       <Header course={course} />
-      <Content contents={contents} />
+      <Content parts={parts} />
       <Total total={exercises1 + exercises2 + exercises3} />
     </div>
   );
