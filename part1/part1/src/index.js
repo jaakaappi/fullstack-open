@@ -1,12 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const Display = ({ counter }) => <div>{counter}</div>;
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>;
+
+const App = props => {
+  const [counter, setCounter] = useState(0);
+  const setToValue = value => setCounter(value);
+
+  return (
+    <div>
+      <Display counter={counter} />
+      <Button onClick={() => setToValue(counter + 1)} text="plus" />{" "}
+      <Button onClick={() => setToValue(counter - 1)} text="minus" />{" "}
+      <Button onClick={() => setToValue(0)} text="zero" />{" "}
+    </div>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));
