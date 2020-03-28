@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
-const App = () => {
-  console.log("Hello from komponentti");
-  return (
-    <div>
-      <p>Hello world</p>
-    </div>
-  );
+const App = props => {
+  const [counter, setCounter] = useState(0);
+  setTimeout(() => setCounter(counter + 1), 1000);
+  return <div>{counter}</div>;
 };
 
 ReactDOM.render(<App />, document.getElementById("root"));
