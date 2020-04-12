@@ -1,0 +1,16 @@
+title uusi muistiinpano
+
+selain->palvelin: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+note over palvelin: palvelin tallentaa uuden muistiinpanon
+palvelin-->selain: 302 /notes
+note over selain: selain ohjataan lataamaan muistiinpanot -sivu
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+palvelin-->selain: sivun html
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+palvelin-->selain: tyylitiedosto
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+palvelin-->selain: js-tiedosto
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+palvelin-->selain: data-json
+selain->palvelin: HTTP GET https://fullstack-exampleapp.herokuapp.com/favicon.ico
+palvelin-->selain: 404
