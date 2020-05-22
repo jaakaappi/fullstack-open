@@ -8,3 +8,7 @@
 
 - Muista onChange controlled componentteihin.
 - Filter-funktio: `notes.filter(note => note.important === true)` palauttaa noten jos tärkeä. Voi käyttää suoraa booleania tietenkin.
+
+# 2c Palvelimella olevan datan hakeminen
+
+- fetch, axios-paketti helpottaa käyttöä
