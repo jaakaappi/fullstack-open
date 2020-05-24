@@ -1,6 +1,6 @@
 import React from "react";
 
-const CountryList = ({ countries }) => {
+const CountryList = ({ countries, showCountry }) => {
   if (countries.length === 1) {
     const country = countries[0];
     return (
@@ -16,7 +16,11 @@ const CountryList = ({ countries }) => {
             </p>
           );
         })}
-        <img src={country.flag} style={{ width: "100px" }} />
+        <img
+          src={country.flag}
+          style={{ width: "100px" }}
+          alt={`Map of ${country.name}`}
+        />
       </div>
     );
   } else if (countries.length > 10) {
@@ -25,7 +29,20 @@ const CountryList = ({ countries }) => {
     return (
       <div>
         {countries.map((country) => {
-          return <p key={`${country.alpha3Code}`}>{country.name}</p>;
+          return (
+            <div key={`${country.alpha3Code}`}>
+              <p>
+                {country.name}{" "}
+                <button
+                  onClick={() => {
+                    showCountry(country.name.toLowerCase());
+                  }}
+                >
+                  Show country
+                </button>
+              </p>
+            </div>
+          );
         })}
       </div>
     );

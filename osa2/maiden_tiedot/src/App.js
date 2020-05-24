@@ -18,6 +18,10 @@ const App = () => {
       });
   }, []);
 
+  const showCountry = (countryName) => {
+    setNameFilter(countryName);
+  };
+
   const filteredCountries = countries.filter((country) =>
     country.name.toLowerCase().includes(nameFilter)
   );
@@ -31,7 +35,7 @@ const App = () => {
           setNameFilter(e.currentTarget.value);
         }}
       />
-      <CountryList countries={filteredCountries} />
+      <CountryList countries={filteredCountries} showCountry={showCountry} />
     </div>
   );
 };
