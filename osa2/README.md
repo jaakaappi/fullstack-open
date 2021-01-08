@@ -9,6 +9,6 @@
 - Muista onChange controlled componentteihin.
 - Filter-funktio: `notes.filter(note => note.important === true)` palauttaa noten jos tärkeä. Voi käyttää suoraa booleania tietenkin.
 
-# 2c Palvelimella olevan datan hakeminen
+# 2c Palvelindata
 
-- fetch, axios-paketti helpottaa käyttöä
+- JSON server `npx json-server --port=3001 --watch db.json`
